@@ -4,6 +4,7 @@ import 'package:social_media/service/servise_register.dart';
 import 'package:social_media/view/chnage_password.dart';
 import 'package:social_media/view/home_screen.dart';
 import 'package:social_media/view/register_screen.dart';
+import 'package:social_media/view/widgets/bottom_nav.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({
@@ -22,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [Colors.red, Colors.blue],
         )),
@@ -34,9 +35,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
-                padding: EdgeInsets.only(left: 30, right: 30),
+                padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Card(
-                   
                   child: Form(
                     child: Center(
                       child: Padding(
@@ -51,7 +51,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20))),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             TextFormField(
@@ -60,21 +60,22 @@ class _LoginScreenState extends State<LoginScreen> {
                                   hintText: 'password',
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(20))),
-                           ),
-                            SizedBox(
+                            ),
+                            const SizedBox(
                               height: 10,
                             ),
                             TextButton(
                                 onPressed: () {
                                   Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (context) =>
-                                            ChangePasswordScreen(),
-                                      ));
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChangePasswordScreen(),
+                                    ),
+                                  );
                                 },
-                                child: Text('forgot password')),
-                            SizedBox(
+                                child: const Text('forgot password')),
+                            const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
@@ -83,12 +84,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                       AuthModel(
                                           email: emailNameCntrl.text,
                                           password: passwordCntl.text,
-                                          userName: ''));
+                                          username: ''));
                                   if (status == 'success') {
-                                    Navigator.pushReplacement(
+                                    Navigator.pushReplacement( 
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => HomeScreen(),
+                                          builder: (context) =>
+                                              const BottomNav(),
                                         ));
                                   } else {
                                     Navigator.pushReplacement(
@@ -98,7 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ));
                                   }
                                 },
-                                child: Text('Login'))
+                                child: const Text('Login'))
                           ],
                         ),
                       ),
@@ -112,7 +114,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => RegisterScreen()));
                 },
-                child: Text('Register'))
+                child: const Text('Register'))
           ],
         ),
       ),

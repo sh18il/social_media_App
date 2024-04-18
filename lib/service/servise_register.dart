@@ -7,7 +7,7 @@ import 'package:social_media/model/register_model.dart';
 
 class ServiceRegister {
   final Dio dio = Dio();
-  Future<Message?> register(AuthModel authModel) async {
+  Future<UserModel?> register(AuthModel authModel) async {
     try {
       final responce = await dio.post(
           'https://socialmedia-api-v1.onrender.com/auth/register/',
@@ -15,7 +15,7 @@ class ServiceRegister {
           options: Options(headers: {"Content-Type": "application/json"}));
       if (responce.statusCode == 201) {
         log('register succesfull');
-        final data = Message.fromJson(responce.data);
+        final data = UserModel.fromJson(responce.data);
         return data;
       } else {
         print('requst Faild ${responce.statusCode}');
@@ -76,4 +76,37 @@ class ServiceRegister {
       print('$e');
     }
   }
+
+   Future<UserModel?> getLogUser() async {
+    try {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      final token = prefs.getString('Token');
+      if (token == null) {
+        throw Exception('Token not found in SharedPreferences');
+      }
+
+      final response = await dio.get(
+        'https://socialmedia-api-v1.onrender.com/auth/loggeduser/',
+        options: Options(headers: {
+          'Content-type': 'application/json',
+          'Authorization': '$token',
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        final jsonData = UserModel.fromJson(response.data);
+        return jsonData;
+      } else {
+        throw Exception('Failed to get logged in user: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Something went wrong: $e');
+    }
+  }
 }
+// class ProfileFetching {
+//     final Dio dio = Dio();
+//   Future<List<Message>>fetchingData()async{
+//     dio.get('')
+//   }
+// }

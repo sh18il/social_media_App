@@ -5,7 +5,7 @@ import 'package:social_media/model/register_model.dart';
 import 'package:social_media/service/servise_register.dart';
 import 'package:social_media/view/login_screen.dart';
 
-Message? messageModel;
+UserModel? messageModel;
 
 class RegisterScreen extends StatefulWidget {
   RegisterScreen({super.key});
@@ -33,7 +33,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(colors: [Colors.red, Colors.blue])),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,7 +43,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Padding(
-                padding: EdgeInsets.only(left: 30, right: 30),
+                padding: const EdgeInsets.only(left: 30, right: 30),
                 child: Card(
                   child: Form(
                     key: formkey,
@@ -67,7 +67,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             TextFormField(
@@ -84,7 +84,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             TextFormField(
@@ -101,7 +101,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }
                               },
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             ElevatedButton(
@@ -114,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         .register(AuthModel(
                                             email: emailController.text,
                                             password: passwordController.text,
-                                            userName: usernameController.text))
+                                            username: usernameController.text))
                                         .then((value) => Navigator.of(context)
                                             .push(MaterialPageRoute(
                                                 builder: (context) =>
@@ -123,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     print('empty value');
                                   }
                                 },
-                                child: Text('register'))
+                                child: const Text('register'))
                           ],
                         ),
                       ),

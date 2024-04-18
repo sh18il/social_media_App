@@ -120,6 +120,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.0.2"
+  light_bottom_navigation_bar:
+    dependency: "direct main"
+    description:
+      name: light_bottom_navigation_bar
+      sha256: "4d0c7db43b781bde86e191b9c13683be0a9df5a2cc915e97e5eb457e9f7774c4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2"
   lints:
     dependency: transitive
     description:

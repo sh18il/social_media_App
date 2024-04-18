@@ -35,6 +35,8 @@ dependencies:
   provider: ^6.1.2
   shared_preferences: ^2.2.2
   dio: ^5.4.2+1
+  light_bottom_navigation_bar: ^0.0.2
+  
 
 
 dev_dependencies:
