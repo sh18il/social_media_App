@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:light_bottom_navigation_bar/light_bottom_navigation_bar.dart';
 import 'package:social_media/view/home_screen.dart';
 import 'package:social_media/view/profile_screen.dart';
+import 'package:social_media/view/user_screen.dart';
 
 class BottomNav extends StatefulWidget {
   const BottomNav({Key? key}) : super(key: key);
@@ -15,8 +16,8 @@ class _BottomNavState extends State<BottomNav> {
   var screensList = [
     const HomeScreen(),
     const Text('Search'),
-    const Text('Favorites'),
-    const ProfileScreen()
+    const UserPage(),
+    const ProfilePage()
   ];
   var index = 0;
 

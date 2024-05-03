@@ -29,15 +29,14 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
-  http:
+  dio: ^5.4.2+1
   flutter:
     sdk: flutter
+  gap: ^3.0.1
+  http: null
+  light_bottom_navigation_bar: ^0.0.2
   provider: ^6.1.2
   shared_preferences: ^2.2.2
-  dio: ^5.4.2+1
-  light_bottom_navigation_bar: ^0.0.2
-  
-
 
 dev_dependencies:
   flutter_lints: ^2.0.0

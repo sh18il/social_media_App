@@ -1,27 +1,4 @@
-class AuthModel {
-  AuthModel({
-    required this.email,
-    required this.password,
-    this.username,
-  });
-  String? email;
-  String? password;
-  String? username;
-
-  factory AuthModel.fromJson(Map<String, dynamic> json) {
-    return AuthModel(
-      email: json['email'],
-      password: json['password'],
-      username: json['username'],
-    );
-  }
-  Map<String, dynamic> toJson() {
-    final data = {'email': email, 'password': password, 'username': username};
-    return data;
-  }
-}
-
-class UserModel {
+class UserrModel {
   String? username;
   String? email;
   String? password;
@@ -33,7 +10,7 @@ class UserModel {
   String? updatedAt;
   int? v;
 
-  UserModel(
+  UserrModel(
       {this.username,
       this.email,
       this.password,
@@ -45,8 +22,8 @@ class UserModel {
       this.updatedAt,
       this.v});
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
-    return UserModel(
+  factory UserrModel.fromJson(Map<String, dynamic> json) {
+    return UserrModel(
       username: json['user']['username'],
       email: json['user']['email'],
       password: json['user']["password"],

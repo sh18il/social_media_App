@@ -6,7 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:social_media/model/register_model.dart';
 
 class ServiceRegister {
-  final Dio dio = Dio();
+  Dio dio = Dio();
   Future<UserModel?> register(AuthModel authModel) async {
     try {
       final responce = await dio.post(
@@ -77,7 +77,7 @@ class ServiceRegister {
     }
   }
 
-   Future<UserModel?> getLogUser() async {
+  Future<UserModel?> getLogUser() async {
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('Token');
@@ -88,8 +88,8 @@ class ServiceRegister {
       final response = await dio.get(
         'https://socialmedia-api-v1.onrender.com/auth/loggeduser/',
         options: Options(headers: {
-          'Content-type': 'application/json',
-          'Authorization': '$token',
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
         }),
       );
 
@@ -99,10 +99,34 @@ class ServiceRegister {
       } else {
         throw Exception('Failed to get logged in user: ${response.statusCode}');
       }
-    } catch (e) {
-      throw Exception('Something went wrong: $e');
+    } catch (erorr) {
+      throw Exception('Something went wrong: $erorr');
     }
   }
+  //  Future<UserModel?> getLoggedUser() async {
+  //   try {
+  //     SharedPreferences pref = await SharedPreferences.getInstance();
+  //     final token = pref.getString('Token');
+  //     final response = await dio.get(
+  //       'https://socialmedia-api-v1.onrender.com/auth/loggeduser',
+  //       options: Options(
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //           'Authorization': 'Bearer $token',
+  //         },
+  //       ),
+  //     );
+
+  //     if (response.statusCode == 200) {
+  //       final jsonData = UserModel.fromJson(response.data);
+  //       return jsonData;
+  //     } else {
+  //       throw Exception('Failed to get logged-in user: ${response.statusCode}');
+  //     }
+  //   } catch (e) {
+  //     throw Exception('Something went wrong: $e');
+  //   }
+  // }
 }
 // class ProfileFetching {
 //     final Dio dio = Dio();

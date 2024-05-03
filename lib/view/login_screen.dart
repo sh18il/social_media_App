@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(70),
               ),
               child: Padding(
                 padding: const EdgeInsets.only(left: 30, right: 30),
@@ -86,7 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                           password: passwordCntl.text,
                                           username: ''));
                                   if (status == 'success') {
-                                    Navigator.pushReplacement( 
+                                    Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) =>
